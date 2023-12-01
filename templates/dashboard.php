@@ -210,9 +210,10 @@
         type: "post",
         data: $(this).serialize(),
         dataType: "json", 
-        success: function(data){
+        success: function(res){
+          const data = JSON.parse(res);
           if(data.status){
-                $("#acct_name").val(data.data.details.account_number);
+                $("#acct_name").val(data.data.details.account_name);
                 $("#code").val(data.data.recipient_code);
                 
           }else{
